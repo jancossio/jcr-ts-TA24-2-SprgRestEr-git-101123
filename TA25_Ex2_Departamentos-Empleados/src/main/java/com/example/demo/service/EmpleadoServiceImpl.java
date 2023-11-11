@@ -27,9 +27,9 @@ public class EmpleadoServiceImpl implements IEmpleadoService{
 		}
 
 		@Override
-		public Empleado empleadoXID(String dni) {
+		public Empleado empleadoXID(String id) {
 			
-			return iEmpleadoDAO.findById(dni).get();
+			return iEmpleadoDAO.findById(id).get();
 		}
 
 		@Override
@@ -39,9 +39,9 @@ public class EmpleadoServiceImpl implements IEmpleadoService{
 		}
 
 		@Override
-		public void eliminarEmpleado(String dni) {
+		public void eliminarEmpleado(String id) {
 			
-			iEmpleadoDAO.deleteById(dni);
+			iEmpleadoDAO.deleteById(id);
 			
 		}
 }

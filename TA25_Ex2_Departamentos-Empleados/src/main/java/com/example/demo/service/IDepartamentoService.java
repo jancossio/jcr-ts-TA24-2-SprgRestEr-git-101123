@@ -10,9 +10,9 @@ public interface IDepartamentoService {
 	
 	public Departamento guardarDepartamento(Departamento departamento);
 	
-	public Departamento departamentoXID(Integer codigo);
+	public Departamento departamentoXID(Integer id);
 	
 	public Departamento actualizarDepartamento(Departamento departamento);
 
-	public void eliminarDepartamento(Integer codigo);
+	public void eliminarDepartamento(Integer id);
 }

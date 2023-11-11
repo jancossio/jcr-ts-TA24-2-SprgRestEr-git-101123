@@ -20,8 +20,8 @@ import jakarta.persistence.Table;
 public class Empleado {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String dni;
+	@Column(name = "dni")
+	private String id;
 	@Column(name = "nombre")
 	private String nombre;
 	@Column(name = "apellido")
@@ -35,21 +35,21 @@ public class Empleado {
 		
 	}
 	
-	public Empleado(String dni, String nombre, String apellido, Departamento departamento){
-		//super();
-		this.dni = dni;
+	public Empleado(String id, String nombre, String apellido, Departamento departamento){
+		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.nombre = nombre;
 		this.departamento = departamento;
 	}
 	
 
-	public String getDni() {
-		return dni;
+	public String getId() {
+		return id;
 	}
 
-	public void setDni(String dni) {
-		this.dni = dni;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -78,7 +78,7 @@ public class Empleado {
 
 	@Override
 	public String toString() {
-		return "Empleado [dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", departamento="
+		return "Empleado [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", departamento="
 				+ departamento + "]";
 	}
 }

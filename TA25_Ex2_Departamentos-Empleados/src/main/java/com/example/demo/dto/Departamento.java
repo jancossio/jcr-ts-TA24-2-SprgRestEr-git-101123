@@ -19,8 +19,8 @@ import jakarta.persistence.Table;
 public class Departamento {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer codigo;
+	@Column(name = "codigo")
+	private Integer id;
 	@Column(name = "nombre")
 	private String nombre;
 	@Column(name = "presupuesto")
@@ -34,20 +34,20 @@ public class Departamento {
 		
 	}
 	
-	public Departamento(Integer codigo, String nombre, Integer presupuesto){
-		//super();
-		this.codigo = codigo;
+	public Departamento(Integer id, String nombre, Integer presupuesto){
+		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 	}
 	
 
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -78,6 +78,6 @@ public class Departamento {
 
 	@Override
 	public String toString() {
-		return "Fabricante [codigo=" + codigo + ", nombre=" + nombre + "]";
+		return "Fabricante [id=" + id + ", nombre=" + nombre + "]";
 	}
 }

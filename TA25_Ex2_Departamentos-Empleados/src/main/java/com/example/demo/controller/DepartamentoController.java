@@ -16,55 +16,55 @@ import com.example.demo.dto.Departamento;
 import com.example.demo.service.DepartamentoServiceImpl;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/departamentos")
 public class DepartamentoController {
 
 	@Autowired
 	DepartamentoServiceImpl departamentoServiceImpl;
 	
-	@GetMapping("/departamentos")
-	public List<Departamento> listarArticulo(){
+	@GetMapping("/all")
+	public List<Departamento> listarDepartamento(){
 		return departamentoServiceImpl.listarDepartamentos();
 	}
 	
-	@PostMapping("/departamentos")
-	public Departamento salvarArticulo(@RequestBody Departamento departamento) {
+	@PostMapping("/add")
+	public Departamento salvarDepartamento(@RequestBody Departamento departamento) {
 		
 		return departamentoServiceImpl.guardarDepartamento(departamento);
 	}
 	
-	@GetMapping("/departamentos/{codigo}")
-	public Departamento departamentoXID(@PathVariable(name="codigo") Integer codigo) {
+	@GetMapping("/{id}")
+	public Departamento departamentoXID(@PathVariable(name="id") Integer id) {
 		
 		Departamento departamento_xid= new Departamento();
 		
-		departamento_xid=departamentoServiceImpl.departamentoXID(codigo);
+		departamento_xid=departamentoServiceImpl.departamentoXID(id);
 		
-		System.out.println("articulo XID: "+departamento_xid);
+		//System.out.println("articulo XID: "+departamento_xid);
 		
 		return departamento_xid;
 	}
 	
-	@PutMapping("/departamentos/{codigo}")
-	public Departamento actualizarArticulo(@PathVariable(name="codigo")Integer codigo,@RequestBody Departamento departamento) {
+	@PutMapping("/{id}")
+	public Departamento actualizarDepartamento(@PathVariable(name="id")Integer id,@RequestBody Departamento departamento) {
 		
 		Departamento departamento_seleccionado= new Departamento();
 		Departamento departamento_actualizado= new Departamento();
 		
-		departamento_seleccionado= departamentoServiceImpl.departamentoXID(codigo);
+		departamento_seleccionado= departamentoServiceImpl.departamentoXID(id);
 		
 		departamento_seleccionado.setNombre(departamento.getNombre());
 		departamento_seleccionado.setPresupuesto(departamento.getPresupuesto());
 		
 		departamento_actualizado = departamentoServiceImpl.actualizarDepartamento(departamento_seleccionado);
 		
-		System.out.println("El video actualizado es: "+ departamento_actualizado);
+		//System.out.println("El video actualizado es: "+ departamento_actualizado);
 		
 		return departamento_actualizado;
 	}
 	
-	@DeleteMapping("/departamentos/{codigo}")
-	public void eliminarDepartamento(@PathVariable(name="codigo")Integer codigo) {
-		departamentoServiceImpl.eliminarDepartamento(codigo);
+	@DeleteMapping("/{id}")
+	public void eliminarDepartamento(@PathVariable(name="id")Integer id) {
+		departamentoServiceImpl.eliminarDepartamento(id);
 	}
 }
